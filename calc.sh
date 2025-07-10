@@ -66,14 +66,13 @@ else
     echo "Successfully installed Tkinter."
 fi
 
-REPO_URL="https://github.com/Daktoo/DKI-Calculator"
-TARGET_DIR="DKI-Calculator"
-
-if [[ -d "$TARGER_DIR" ]]; then
-    echo "Repo already exists: $TARGER_DIR"
-else
-    echo "Cloning repo from $REPO_URL..."
-    git clone "$REPO_URL"
-fi
+mkdir -p DKI-Calculator
+cd DKI-Calculator
+echo "Downloading files..."
+base_url="https://raw.githubusercontent.com/Daktoo/DKI-Calculator/main"
+curl -O "$base_url/background.png"
+curl -O "$base_url/dak.png"
+curl -O "$base_url/dki-icon.png"
+curl -O "$base_url/calc.py"
 
 echo "Installation completed successfully. You can run the calculator at ~/DKI-Calculator/calc.py"

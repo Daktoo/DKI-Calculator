@@ -28,12 +28,16 @@ if errorlevel 1 (
     echo.
     pause
 )
-if exist DKI-Calculator (
-    echo Repo already exists: DKI-Calculator
-) else (
-    echo Cloning GitHub repo...
-    git clone https://github.com/Daktoo/DKI-Calculator
+if not exist DKI-Calculator (
+    mkdir DKI-Calculator
 )
+cd DKI-Calculator
+echo "Downloading files..."
+set base=https://raw.githubusercontent.com/Daktoo/DKI-Calculator/main
+curl -O %base%/background.png
+curl -O %base%/dak.png
+curl -O %base%/dki-icon.png
+curl -O %base%/calc.python
 
 echo.
 echo Installation successfull.
