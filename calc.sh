@@ -49,6 +49,23 @@ else
     echo "Successfully installed Python3."
 fi
 
+echo "Checking for Pillow..."
+if ! python3 -c "import PIL" 2>/dev/null; then
+    echo "Installing Pillow..."
+    case $PKG_MANAGER in
+        apt) apt install -y python3-pillow ;;
+        dnf) dnf install -y python3-pillow ;;
+        yum) yum install -y pillow ;;
+        pacman) pacman -Sy --noconfirm python-pillow ;;
+        zypper) zypper install -y python3-tk ;;
+        brew) brew install python-pillow ;;
+        pkg) pkg install python3-pillow ;;
+        *) echo "Unsupported package manager. Please install pillow manually."; exit 1 ;;
+    esac
+else
+    echo "Successfully installed Pillow."
+fi
+
 echo "Checking for Tkinter..."
 if ! python3 -c "import tkinter" 2>/dev/null; then
     echo "Installing Tkinter..."

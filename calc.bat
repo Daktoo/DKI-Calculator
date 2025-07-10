@@ -3,6 +3,14 @@ setlocal enabledelayedexpansion
 echo ============================================
 echo Installing DKI-Calculator
 echo ============================================
+where curl >nul 2>nul
+if errorlevel 1 (
+    echo Curl is not installed
+    echo Installing Curl via winget
+    winget install -id curl.curl -e --source winget
+) else (
+    echo Curl is already installed
+)
 where git >nul 2>nul
 if errorlevel 1 (
     echo Git is not installed
@@ -28,6 +36,10 @@ if errorlevel 1 (
     echo.
     pause
 )
+echo Installing Pillow module
+python -m pip install --upgrade pip
+python -m pip install Pillow
+
 if not exist DKI-Calculator (
     mkdir DKI-Calculator
 )

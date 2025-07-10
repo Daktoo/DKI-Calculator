@@ -18,7 +18,7 @@ expr = ""
 memory = None
 history = []
 
-def press(key):
+def press(key):  
     global expr
     expr += str(key)
     display.set(expr)
