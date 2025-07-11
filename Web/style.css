@@ -3,8 +3,43 @@ body {
     padding: 0;
     background: url('background.png') no-repeat center center fixed;
     background-size: cover;
+    background-color: black;
     font-family: Arial, sans-serif;
+    text-align: center;
     color: white;
+}
+
+.title {
+    font-size: 2.5em;
+    margin: 30px 0 10px 0;
+    color: white;
+}
+
+.dki-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 14px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
+
+.dki-link:hover {
+    background-color: #666;
+}
+
+.dki-icon {
+    width: 20px;
+    height: 20px;
 }
 
 #calculator {
