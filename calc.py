@@ -5,6 +5,31 @@ from fractions import Fraction
 import os
 from PIL import Image, ImageTk
 
+class Tooltip:
+    def __init__(self, widget, text):
+        self.widget = widget
+        self.text = text
+        self.tooltip_window = None
+        self.widget.bind("<Enter>", self.show_tooltip)
+        self.widget.bind("<Leave>", self.hide_tooltip)
+
+    def show_tooltip(self, event=None):
+        if self.tooltip_window or not self.text:
+            return
+        x = y = 0
+        x = self.widget.winfo_rootx() + 20
+        y = self.widget.winfo_rooty() + 20
+        self.tooltip_window = tw = tk.Toplevel(self.widget)
+        tw.wm_overrideredirect(True)
+        tw.wm_geometry(f"+{x}+{y}")
+        label = tk.Label(tw, text=self.text, background="black", foreground="white", relief="solid", borderwidth=1, font=("Arial", 9))
+        label.pack(ipadx=4, ipady=2)
+
+    def hide_tooltip(self, event=None):
+        if self.tooltip_window:
+            self.tooltip_window.destroy()
+            self.tooltip_window = None
+
 # Globals
 expr = ""
 memory = None
@@ -203,21 +228,16 @@ def run_gui():
         root.grid_rowconfigure(i, weight=1)
     for i in range(6):
         root.grid_columnconfigure(i, weight=1)
-
-    # DKI Hyperlink
-    link_frame = tk.Frame(root, bg="black")
-    link_frame.grid(row=99, column=4, columnspan=2, sticky="e", padx=10, pady=5)
-    link = tk.Label(link_frame, text="Dakto INC", fg="blue", cursor="hand2", bg="black", font=("Arial", 9, "underline"))
-    link.pack(side="left")
-    link.bind("<Button-1>", open_website)
     
     if os.path.exists("dki-icon.png"):
-        icon_img = Image.open("dki-icon.png").resize((16, 16))
-        icon_photo = ImageTk.PhotoImage(icon_img)
-        icon_label = tk.Label(link_frame, image=icon_photo, bg="black")
-        icon_label.image = icon_photo
-        icon_label.pack(side="left", padx=(5, 0))
-    
+        icon_img = Image.open("dki-icon.png")
+        icon_img = icon_img.resize((38, 38), Image.Resampling.LANCZOS)
+        icon_img = ImageTk.PhotoImage(icon_img)
+        icon_button = tk.Label(root, image=icon_img, bg="black", cursor="hand2")
+        icon_button.image = icon_img
+        icon_button.grid(row=99, column=5, sticky="e", padx=5, pady=5)
+        icon_button.bind("<Button-1>", open_website)
+        Tooltip(icon_button, "Go to Dakto INC website")
     root.mainloop()
 
 run_gui()
