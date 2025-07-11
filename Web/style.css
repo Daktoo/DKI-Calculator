@@ -1,72 +1,86 @@
+/* Reset-style stuff */
 body {
-    margin: 0;
-    padding: 0;
-    background: url('background.png') no-repeat center center fixed;
-    background-size: cover;
-    background-color: black;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    color: white;
+  margin: 0;
+  padding: 0;
+
+  /* I need to update this background at some point, it's getting outdated */
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;
+  background-color: black;
+
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
 }
 
+
+/* Header */
 .title {
     font-size: 2.5em;
     margin: 30px 0 10px 0;
     color: white;
+    /* could add text-shadow maybe? */
 }
 
+
+/* dki-link; forgot why I added this */
 .dki-link {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 8px 14px;
-    background-color: #444;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.3s;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 14px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
 }
 
 .dki-link:hover {
-    background-color: #666;
+  background-color: #666;
 }
 
 .dki-icon {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
+
+/* Main nav button */
 #home-button {
-  	position: fixed;
-  	top: 10px;
-  	left: 5px;
-  	display: flex;
-  	align-items: center;
-  	text-decoration: none;
-  	background: rgba(0, 0, 0, 0.4);
-  	padding: 5px 10px;
-  	border-radius: 8px;
-  	z-index: 1000;
-  	color: #fff;
-  	font-size: 14px;
+  position: fixed;
+  top: 10px;
+  left: 5px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: rgba(0,0,0,0.4);
+  padding: 5px 10px;
+  border-radius: 8px;
+  z-index: 1000;
+  color: #fff;
+  font-size: 14px;
+  /* mabye bold would look better? */
 }
 
-#home-button:before
-{
-    content: url(dki-1.ico);
-    margin-right: 10px;
+/* home button icon */
+#home-button:before {
+  content: url(dki-1.ico);
+  margin-right: 10px;
 }
 
 #home-button:hover {
-  	background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
 }
 
+
+/* calculator container */
 #calculator {
     max-width: 420px;
     margin: 40px auto;
@@ -74,27 +88,36 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px #000;
+    /* could possibly add a border... mabye */
 }
 
+
+/* the screen/display box */
 #display {
     width: 100%;
     font-size: 1.4em;
     padding: 10px;
+    margin-bottom: 10px;
     text-align: right;
+
+    background: #222;
+    color: white;
+    
     box-sizing: border-box;
     border: 2px solid #444;
     border-radius: 5px;
-    margin-bottom: 10px;
-    background: #222;
-    color: white;
 }
 
+
+/* grid layout for buttons */
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);  /* columnss :) */
     gap: 5px;
 }
 
+
+/* buttons */
 button {
     padding: 15px;
     font-size: 1em;
@@ -103,12 +126,15 @@ button {
     background: white;
     color: black;
     cursor: pointer;
+    /* font-family inherited */
 }
 
 button:hover {
     background: #ddd;
 }
 
+
+/* footer icon area */
 #icon-link {
     display: flex;
     justify-content: flex-end;
@@ -123,6 +149,8 @@ button:hover {
     cursor: pointer;
 }
 
+
+/* tooltip for icon */
 .tooltip {
     display: none;
     position: absolute;
@@ -133,8 +161,11 @@ button:hover {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 5px;
+    /* maybe add arrow perhaps */
 }
 
 #icon-link:hover .tooltip {
     display: block;
 }
+
+

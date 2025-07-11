@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="dki-1.ico" type="image/x-icon">
-  <title>Dakto INC Calc</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="dki-1.ico" type="image/x-icon">
+
+    <title>Dakto INC Calc</title>
+    
+    <!-- link to external styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1 class="title">Dakto INC Calculator</h1>
+
+    <!-- calc wrapper -->
     <div id="calculator">
+
+        <!-- display goes here -->
         <input type="text" id="display" disabled />
-        <div class="button-grid" id="buttons"></div>
-	<a href="https://www.daktoinc.co.uk" id="home-button">
-	  Home
-	</a>
-  <div id="content"></div>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    </a>
+
+        <!-- buttons get rendered here via JS -->
+        <div class="button-grid" id="buttons">
+        </div>
+
+        <!-- quick home button -->
+        <a href="https://www.daktoinc.co.uk" id="home-button">Home</a>
+
+        <div id="content"></div>
+
+        <!-- js for the home button -->
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+        </a>
+
     </div>
-  </div>
-  <script src="script.js"></script>
+
+    <div></div>
+
+    <!-- the js for the calc buttons and stuff -->
+    <script src="script.js"></script>
 </body>
 </html>
